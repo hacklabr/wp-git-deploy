@@ -47,6 +47,8 @@ class WP_Deploy {
 
         global $wp, $wp_admin_bar;
 
+        wp_enqueue_style('wp-deploy', plugins_url( "css/wp-deploy.css", __FILE__ ) );
+
         $cleaned_url = $this->cleaned_url();
 
         $wp_admin_bar->add_menu( array(
@@ -137,6 +139,3 @@ function wp_deploy_init() {
     new WP_Deploy();
 }
 add_action( 'plugins_loaded', 'wp_deploy_init' );
-
-
-?>
