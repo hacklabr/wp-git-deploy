@@ -62,16 +62,19 @@ class WP_Deploy {
                 array( 'wp_deploy_update_info' => true ),
                 $cleaned_url ) ) );
         
-        foreach ( get_option( 'wp_deploy_branches' ) as $branch => $title ) {
-            $wp_admin_bar->add_menu( array(
-                'id' => 'wp_deploy_branch_' . $branch,
-                'parent' => 'wp_deploy',
-                'title' => $title,
-                'href' => add_query_arg(
-                    array( 'wp_deploy_reset_branch' => $branch ),
-                    $cleaned_url ) ) );
+        $branches = get_option( 'wp_deploy_branches' );
+        
+        if ( is_array( $branches ) && ! empty( $branches ) ) {
+            foreach ( $branches as $branch => $title ) {
+                $wp_admin_bar->add_menu( array(
+                    'id' => 'wp_deploy_branch_' . $branch,
+                    'parent' => 'wp_deploy',
+                    'title' => $title,
+                    'href' => add_query_arg(
+                        array( 'wp_deploy_reset_branch' => $branch ),
+                        $cleaned_url ) ) );
+            }
         }
-
     }
     
     function cleaned_url() {
