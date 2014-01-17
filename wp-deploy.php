@@ -24,6 +24,7 @@ class WP_Deploy {
         add_action( 'query_vars', array( $this, 'query_vars' ) );
         add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 999 );
         add_action( 'wp', array( $this, 'wp' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
     }
 
@@ -43,11 +44,15 @@ class WP_Deploy {
         return $this->custom_vars + $vars;
     }
 
+    function enqueue_scripts() {
+        if ( is_admin_bar_showing() ) {
+            wp_enqueue_style( 'wp-deploy', plugins_url( "css/wp-deploy.css", __FILE__ ) );
+        }
+    }
+
     function admin_bar_menu() {
 
         global $wp, $wp_admin_bar;
-
-        wp_enqueue_style('wp-deploy', plugins_url( "css/wp-deploy.css", __FILE__ ) );
 
         $cleaned_url = $this->cleaned_url();
 
