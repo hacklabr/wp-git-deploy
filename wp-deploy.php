@@ -25,6 +25,7 @@ class WP_Deploy {
         add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 999 );
         add_action( 'wp', array( $this, 'wp' ) );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
     }
 
