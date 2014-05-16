@@ -5,7 +5,7 @@ Donate link: http://vmassuchetto.wordpress.com
 Tags: deploy, production, development, git
 Requires at least: 2.9.2
 Tested up to: 3.9
-Stable tag: 0.01
+Stable tag: 0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

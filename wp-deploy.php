@@ -3,7 +3,7 @@
 * Plugin Name: WP-Deploy
 * Plugin URI: http://github.com/vmassuchetto/wp-deploy
 * Description: Deploy websites via the admin bar using Git
-* Version: 0.01
+* Version: 0.2
 * Author: Leo Germani, Vinicius Massuchetto
 * Author URI: http://github.com/vmassuchetto/wp-deploy
 */
